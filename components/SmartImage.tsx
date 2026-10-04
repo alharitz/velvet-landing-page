@@ -31,6 +31,12 @@ export default function SmartImage({
     if (imgRef.current.complete && imgRef.current.naturalWidth === 0) {
       setFailed(true);
     }
+    if (process.env.NODE_ENV !== 'production') {
+      // Development only warning for failed images
+      if (failed) {
+        console.warn('[SmartImage] failed:', src);
+      }
+    }
   }, []);
 
   const handleError = () => {

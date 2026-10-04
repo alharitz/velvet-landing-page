@@ -215,12 +215,12 @@
     background: transparent;
   }
 
-  .btn-dark-secondary:hover {
-    background: white;
-    color: var(--inverse-bg);
-  }
+  @keyframes lookbook-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .track { display:flex; width:max-content; animation: lookbook-marquee var(--lookbook-duration,60s) linear infinite; will-change: transform; }
+.carousel:hover .track,
+.carousel:focus-within .track,
+.carousel[data-paused="true"] .track { animation-play-state: paused; }
 
-  /* Remove motion if user prefers reduced motion */
   @media (prefers-reduced-motion: reduce) {
     * {
       @apply !animate-none !transition-none;

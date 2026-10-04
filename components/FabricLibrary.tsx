@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
+import { fabricImages } from "@/lib/images.generated";
+import FabricTexture from "./FabricTexture";
 
 const fabrics = [
   {
@@ -75,10 +77,21 @@ export default function FabricLibrary() {
               className="flex flex-col"
             >
               {/* Swatch */}
-              <div
-                className="w-full aspect-square rounded-sm mb-6 border"
-                style={{ backgroundColor: fabric.color, borderColor: "var(--line)" }}
-              />
+{/* Swatch */}
+                <div className="relative aspect-square overflow-hidden bg-[var(--surface)] group">
+                  {fabricImages["fabric-"+fabric.name.toLowerCase().replace(/ /g,"-")] ? (
+                    <img
+                      // eslint-disable-next-line @next/next/no-img-element
+                      src={fabricImages["fabric-"+fabric.name.toLowerCase().replace(/ /g,"-")] as string}
+                      alt={`Close-up of ${fabric.name.toLowerCase()} texture`}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      decoding="async"
+                      onError={(e)=>{console.error('Fabric img error',e.currentTarget.src);}}
+                    />
+                  ) : (
+                    <FabricTexture fabricKey={"fabric-"+fabric.name.toLowerCase().replace(/ /g,"-")} />
+                  )}
+                </div>
 
               {/* Content */}
               <h3 className="font-semibold text-lg mb-2">{fabric.name}</h3>
