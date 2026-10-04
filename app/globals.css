@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #F6F2EC;
+    --surface: #ECE5DA;
+    --ink: #14110F;
+    --muted: #6B645C;
+    --line: #D9D1C5;
+    --accent: #9A6B4F;
+    --inverse-bg: #14110F;
+    --inverse-ink: #F6F2EC;
+  }
+
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[var(--background)] text-[var(--ink)] font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 {
+    @apply font-serif font-bold;
+    font-size: clamp(3.5rem, 9vw, 9rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply font-serif font-semibold;
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    @apply font-serif font-semibold;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  h4 {
+    @apply font-serif font-semibold;
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  p {
+    @apply text-base md:text-lg;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  small {
+    @apply text-xs uppercase font-sans;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+  }
+
+  a {
+    @apply transition-colors duration-300;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    @apply transition-all duration-300;
+  }
+
+  img {
+    @apply block max-w-full h-auto;
+  }
+
+  input,
+  textarea {
+    @apply font-sans;
+  }
+
+  input:focus,
+  textarea:focus {
+    @apply outline-none;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--line);
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
+  }
+
+  /* Smooth scroll via Lenis handled in SmoothScroll component */
+}
+
+@layer components {
+  .container-shared {
+    @apply mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16;
+  }
+
+  .section-space {
+    @apply py-24 md:py-36;
+  }
+
+  .scroll-mt-24 {
+    scroll-margin-top: 6rem;
+  }
+
+  /* Gradient overlay for hero */
+  .hero-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  }
+
+  /* Marquee text style */
+  .marquee-text {
+    @apply font-serif font-light italic;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* Uppercase label */
+  .label-small {
+    @apply text-xs uppercase font-sans;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+  }
+
+  /* Accent text (bronze) */
+  .text-accent-color {
+    color: var(--accent);
+  }
+
+  /* Inverse text (light on dark) */
+  .text-inverse {
+    color: var(--inverse-ink);
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-[var(--ink)] text-[var(--background)] font-semibold text-sm;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--accent);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border border-[var(--ink)] text-[var(--ink)] font-semibold text-sm;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-[var(--surface)];
+  }
+
+  .btn-text {
+    @apply text-sm font-semibold text-[var(--ink)];
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+  }
+
+  .btn-text:hover {
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Dark section buttons */
+  .btn-dark-primary {
+    @apply px-6 py-3 bg-white text-[var(--ink)] font-semibold text-sm;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-dark-primary:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  .btn-dark-secondary {
+    @apply px-6 py-3 border border-white text-white font-semibold text-sm;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+
+  .btn-dark-secondary:hover {
+    background: white;
+    color: var(--inverse-bg);
+  }
+
+  /* Remove motion if user prefers reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      @apply !animate-none !transition-none;
+    }
+  }
+}
