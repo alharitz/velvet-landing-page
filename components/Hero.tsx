@@ -27,7 +27,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-10 container-shared pb-20 md:pb-32"
+        className="relative z-10 container-shared pt-20 pb-20 md:pb-32"
       >
         <div className="max-w-2xl">
           <motion.div
