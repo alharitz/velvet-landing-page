@@ -1,9 +1,25 @@
 import { Suspense } from "react";
+import { Metadata } from "next";
 import { ProductsClient } from "./ProductsClient";
+import { siteConfig } from "@/lib/site-config";
 
-export const metadata = {
-  title: "Catalog — VELVET",
+export const metadata: Metadata = {
+  title: "Catalog",
   description: "Browse our full collection of premium apparel.",
+  alternates: { canonical: `${siteConfig.siteUrl}/products` },
+  openGraph: {
+    title: "Catalog — VELVET",
+    description: "Browse our full collection of premium apparel.",
+    type: "website",
+    url: `${siteConfig.siteUrl}/products`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Catalog — VELVET",
+    description: "Browse our full collection of premium apparel.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function ProductsPage() {

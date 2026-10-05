@@ -5,8 +5,9 @@
   "scripts": {
     "build": "next build",
     "predev": "node scripts/sync-images.mjs",
-    "prebuild": "node scripts/sync-images.mjs",
-    "lint": "next lint"
+    "dev": "next dev",
+    "start": "next start",
+    "lint": "eslint . --ext .js,.ts,.tsx"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -25,7 +26,6 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
     "eslint-config-next": "^16.3.6",
     "tailwindcss": "^4",
     "typescript": "^5"

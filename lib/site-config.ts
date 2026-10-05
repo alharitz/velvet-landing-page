@@ -2,6 +2,8 @@
 export const siteConfig = {
   name: "VELVET",
   tagline: "Minimalist fashion from Jakarta",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://velvet-landing-page-seven.vercel.app",
+  allowIndexing: process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true",
   whatsapp: {
     number: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6281200000000", // digits only, international format — PLACEHOLDER
     display: "+62 812-0000-0000",

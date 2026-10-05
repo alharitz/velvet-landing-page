@@ -10,4 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Project docs and workflow
 
+For UI work, use the frontend-design / UI-UX skill if one is available; otherwise follow the Design guidance in the task file. Stay within existing design tokens and check a 390px mobile viewport and a short laptop viewport (1366x768) before reporting. If you have no browser tooling, say so explicitly in the report instead of claiming visual verification.
+
+
 Product context lives in `docs/PRODUCT_BRIEF.md`, work items live in `tasks/` (see `tasks/README.md`). Agents must work on one task per session and follow the report format in `tasks/README.md`.

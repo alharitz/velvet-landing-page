@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import DemoBanner from "@/components/DemoBanner";
+import { siteConfig } from "@/lib/site-config";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
@@ -18,14 +19,48 @@ const inter = Inter({
   display: "swap",
 });
 
+export const metadataBase = new URL(siteConfig.siteUrl);
+
 export const metadata: Metadata = {
-  title: "VELVET — Minimalist Luxury",
+  metadataBase,
+  title: {
+    default: "VELVET — Minimalist Luxury",
+    template: "%s | VELVET",
+  },
   description: "Premium minimalist clothing designed with intention. Premium fabrics, intentional design, sustainable practices.",
+  keywords: ["fashion", "minimalist", "luxury", "clothing", "Jakarta", "VELVET"],
+  authors: [{ name: "VELVET" }],
+  creator: "VELVET",
+  publisher: "VELVET",
+  robots: siteConfig.allowIndexing ? { index: true, follow: true } : { index: false, follow: false },
   openGraph: {
+    type: "website",
+    locale: "en_ID",
+    url: siteConfig.siteUrl,
+    siteName: "VELVET",
     title: "VELVET — Minimalist Luxury",
     description: "Premium minimalist clothing designed with intention.",
-    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "VELVET — Minimalist Luxury",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "VELVET — Minimalist Luxury",
+    description: "Premium minimalist clothing designed with intention.",
+    images: ["/opengraph-image"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -36,7 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#F6F2EC" />
+        { !siteConfig.allowIndexing && <meta name="robots" content="noindex, nofollow" /> }
         <meta name="viewport" content="width=device-width, initial-scale=0.8" />
       </head>
       <body className={`${cormorant.variable} ${inter.variable} font-sans antialiased`}>
@@ -48,4 +83,3 @@ export default function RootLayout({
     </html>
   );
 }
-

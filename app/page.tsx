@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
@@ -17,10 +18,35 @@ import FAQ from "@/components/FAQ";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { siteConfig } from "@/lib/site-config";
+import { generateWebsiteJsonLd, generateOrganizationJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = {
+    description: "Premium minimalist clothing designed with intention. Premium fabrics, intentional design, sustainable practices.",
+  alternates: { canonical: siteConfig.siteUrl },
+  openGraph: {
+        description: "Premium minimalist clothing designed with intention.",
+    type: "website",
+    url: siteConfig.siteUrl,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "VELVET — Minimalist Luxury" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+        description: "Premium minimalist clothing designed with intention.",
+    images: ["/opengraph-image"],
+  },
+};
 
 export default function Home() {
+  const websiteJsonLd = generateWebsiteJsonLd();
+  const organizationJsonLd = generateOrganizationJsonLd();
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([websiteJsonLd, organizationJsonLd]) }}
+      />
       <Navbar />
       <main>
         <Hero />
