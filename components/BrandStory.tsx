@@ -66,19 +66,16 @@ export default function BrandStory() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-serif italic text-lg text-muted border-l-2 border-accent pl-6 py-6 mb-10"
             >
-              "Simplicity is the ultimate sophistication. We design for those who know the difference."
+              &ldquo;Simplicity is the ultimate sophistication. We design for those who know the difference.&rdquo;
             </motion.blockquote>
 
             <p className="text-muted mb-10">
               Founded on the principle that less is more, we focus on essential pieces constructed with uncompromising attention to detail. Every fabric is chosen for its integrity, every seam for its precision.
             </p>
 
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-ink hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent pb-1"
-            >
-              Read Our Full Story →
-            </a>
+            <span className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-ink border-b-2 border-transparent pb-1 cursor-default">
+              Read Our Full Story
+            </span>
           </motion.div>
         </div>
       </div>

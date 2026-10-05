@@ -7,14 +7,21 @@ import { siteConfig, waLink } from "@/lib/site-config";
 
 export default function FloatingWhatsApp() {
   const [isVisible, setIsVisible] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false
+  );
 
   useEffect(() => {
-    setPrefersReducedMotion(
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    );
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener("change", handleChange);
     const timer = setTimeout(() => setIsVisible(true), 1500);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      mediaQuery.removeEventListener("change", handleChange);
+    };
   }, []);
 
   if (!isVisible) return null;

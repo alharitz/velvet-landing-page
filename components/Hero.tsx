@@ -4,8 +4,10 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { Button } from "./Button";
 import { ChevronDown } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter();
   return (
     <section className="relative w-full min-h-[100svh] flex items-end overflow-hidden">
       {/* Background Image */}
@@ -62,8 +64,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="flex flex-col md:flex-row gap-4"
           >
-            <Button variant="on-dark-primary">Explore Collection</Button>
-            <Button variant="on-dark-secondary">Our Story</Button>
+            <Button variant="on-dark-primary" onClick={() => router.push('/products')}>Explore Collection</Button>
+            <Button variant="on-dark-secondary" onClick={() => router.push('/our-story')}>Our Story</Button>
           </motion.div>
         </div>
       </motion.div>

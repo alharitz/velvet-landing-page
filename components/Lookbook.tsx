@@ -30,7 +30,7 @@ export default function Lookbook() {
           alt={img.title}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="mt-2 text-sm uppercase">{img.title}</div>
+        <div className="mt-2 text-sm uppercase">Look {(idx + 1).toString().padStart(2, "0")}</div>
         <div className="text-xs">{img.copy}</div>
       </div>
     ));

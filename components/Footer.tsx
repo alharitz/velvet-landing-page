@@ -7,28 +7,30 @@ import { siteConfig, waLink } from "@/lib/site-config";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const links = {
+  type LinkItem = { label: string; href?: string; isText?: boolean };
+
+  const links: Record<string, LinkItem[]> = {
     Collection: [
-      { label: "Outerwear", href: "#collection" },
-      { label: "Knitwear", href: "#collection" },
-      { label: "Trousers", href: "#collection" },
-      { label: "Essentials", href: "#collection" },
+      { label: "Outerwear", href: "/products?category=outerwear" },
+      { label: "Knitwear", href: "/products?category=knitwear" },
+      { label: "Trousers", href: "/products?category=trousers" },
+      { label: "Essentials", href: "/products?category=essentials" },
     ],
     Company: [
-      { label: "Our Story", href: "#story" },
-      { label: "Craft", href: "#craft" },
-      { label: "Journal", href: "#journal" },
-      { label: "Visit Us", href: "#visit" },
+      { label: "Our Story", href: "/#story" },
+      { label: "Craft", href: "/#craft" },
+      { label: "Journal", href: "/#journal" },
+      { label: "Visit Us", href: "/#visit" },
     ],
     "Where to Buy": [
       { label: "WhatsApp", href: waLink() },
-      ...siteConfig.marketplaces.map((mp) => ({
+      ...siteConfig.marketplaces.map((mp: { name: string; url: string }) => ({
         label: mp.name,
         href: mp.url,
       })),
     ],
     Contact: [
-      { label: siteConfig.address.line1, href: "#" },
+      { label: siteConfig.address.line1, href: undefined, isText: true },
       { label: siteConfig.email, href: `mailto:${siteConfig.email}` },
       { label: siteConfig.whatsapp.display, href: waLink() },
     ],
@@ -68,14 +70,18 @@ export default function Footer() {
               <ul className="space-y-3">
                 {items.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      target={link.href.startsWith("http") ? "_blank" : undefined}
-                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="text-sm opacity-60 hover:opacity-100 transition-opacity"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.isText ? (
+                      <span className="text-sm opacity-60">{link.label}</span>
+                    ) : (
+                      <Link
+                        href={link.href as string}
+                        target={link.href?.startsWith("http") ? "_blank" : undefined}
+                        rel={link.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="text-sm opacity-60 hover:opacity-100 transition-opacity"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

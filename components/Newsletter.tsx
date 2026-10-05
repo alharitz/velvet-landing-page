@@ -76,9 +76,9 @@ export default function Newsletter() {
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-ink text-sm mt-4"
+              className="text-accent text-sm mt-4"
             >
-              Thank you for subscribing. We'll be in touch soon.
+              Demo only. No email was saved.
             </motion.p>
           )}
 

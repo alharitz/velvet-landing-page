@@ -51,14 +51,9 @@ export default function Journal() {
               From Our Journal
             </h2>
           </div>
-          <motion.a
-            href="#"
-            whileHover={{ x: 4 }}
-            className="mt-6 md:mt-0 btn-text"
-            rel="noopener noreferrer"
-          >
-            Read All Stories →
-          </motion.a>
+          <span className="mt-6 md:mt-0 btn-text cursor-default" style={{ color: "var(--muted)" }}>
+            Read All Stories
+          </span>
         </motion.div>
 
         {/* Articles Grid */}
@@ -70,15 +65,13 @@ export default function Journal() {
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {articles.map((article, idx) => (
-            <motion.a
+            <motion.article
               key={idx}
-              href="#"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="group flex flex-col h-full"
-              rel="noopener noreferrer"
             >
               {/* Image */}
               <div className="relative aspect-video bg-gray-100 mb-6 overflow-hidden">
@@ -111,7 +104,7 @@ export default function Journal() {
                 <span>{article.date}</span>
                 <span>{article.readTime}</span>
               </div>
-            </motion.a>
+            </motion.article>
           ))}
         </motion.div>
       </div>

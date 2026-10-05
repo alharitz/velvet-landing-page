@@ -17,11 +17,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Collection", href: "#collection" },
-    { label: "Story", href: "#story" },
-    { label: "Craft", href: "#craft" },
-    { label: "Journal", href: "#journal" },
-    { label: "Visit", href: "#visit" },
+    { label: "Collection", href: "/#collection" },
+    { label: "Story", href: "/#story" },
+    { label: "Craft", href: "/#craft" },
+    { label: "Journal", href: "/#journal" },
+    { label: "Visit", href: "/#visit" },
   ];
 
   return (
@@ -29,7 +29,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`fixed w-full top-6 z-50 transition-all duration-300 ${
         isScrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >

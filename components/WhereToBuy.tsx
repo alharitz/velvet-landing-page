@@ -75,7 +75,7 @@ export default function WhereToBuy() {
             transition={{ duration: 0.6 }}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-              {siteConfig.marketplaces.map((mp) => (
+              {siteConfig.marketplaces.map((mp: { key: string; name: string; url: string }) => (
                 <motion.a
                   key={mp.key}
                   href={mp.url}

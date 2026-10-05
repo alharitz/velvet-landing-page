@@ -129,6 +129,11 @@ export default function Craft() {
             <p className="text-sm opacity-70">Repair Program</p>
           </div>
         </motion.div>
+
+        {/* Demo notice */}
+        <p className="mt-8 text-xs text-center opacity-50">
+          Sample claims for demo purposes. Not verified certifications.
+        </p>
       </div>
     </section>
   );

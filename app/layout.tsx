@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import DemoBanner from "@/components/DemoBanner";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
@@ -36,9 +37,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#F6F2EC" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.8" />
       </head>
       <body className={`${cormorant.variable} ${inter.variable} font-sans antialiased`}>
         <SmoothScroll />
+        <DemoBanner />
         {children}
         <FloatingWhatsApp />
       </body>

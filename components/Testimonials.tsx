@@ -69,8 +69,8 @@ export default function Testimonials() {
               </span>
             ))}
           </div>
-          <p className="text-sm" style={{ color: "var(--muted)" }}>
-            Trusted by 1000+ customers
+          <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "var(--accent)" }}>
+            Sample reviews
           </p>
         </motion.div>
 
@@ -85,7 +85,7 @@ export default function Testimonials() {
             className="mb-12"
           >
             <blockquote className="font-serif italic text-2xl md:text-3xl mb-8 leading-relaxed">
-              "{testimonials[current].quote}"
+              &ldquo;{testimonials[current].quote}&rdquo;
             </blockquote>
             <div>
               <p className="font-semibold">{testimonials[current].author}</p>
@@ -131,7 +131,7 @@ export default function Testimonials() {
         >
           {supportingQuotes.map((quote, idx) => (
             <p key={idx} className="text-sm italic" style={{ color: "var(--muted)" }}>
-              "{quote}"
+              &ldquo;{quote}&rdquo;
             </p>
           ))}
         </motion.div>

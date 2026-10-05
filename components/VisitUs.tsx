@@ -12,7 +12,7 @@ export default function VisitUs() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name.trim() && formData.message.trim()) {
-      const msg = `Hi VELVET, from ${formData.name}: ${formData.message}`;
+      const msg = `Halo VELVET, dari ${formData.name}: ${formData.message}`;
       window.open(waLink(msg), "_blank");
       setFormData({ name: "", message: "" });
       setSubmitted(true);

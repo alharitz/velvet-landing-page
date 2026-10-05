@@ -1,12 +1,13 @@
 // DUMMY DATA - replace before launch
 export const siteConfig = {
   name: "VELVET",
+  tagline: "Minimalist fashion from Jakarta",
   whatsapp: {
-    number: "6281200000000", // digits only, international format
+    number: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6281200000000", // digits only, international format — PLACEHOLDER
     display: "+62 812-0000-0000",
     hours: "Mon-Sat, 09:00-18:00 WIB",
     defaultMessage:
-      "Hi VELVET, I'd like to know more about your collection.",
+      "Halo VELVET, saya tertarik dengan koleksi Anda. Apakah masih tersedia?",
   },
   email: "hello@velvet.example",
   address: {
@@ -16,7 +17,7 @@ export const siteConfig = {
   },
   storeHours: "Mon-Sat 10:00-20:00 WIB, Sun 11:00-18:00 WIB",
   map: {
-    query: "Indomaret Kemang Raya, Jakarta Selatan",
+    query: "Jl. Kemang Raya No. 88, Kemang, Jakarta Selatan 12730, Indonesia",
   },
   marketplaces: [
     {
