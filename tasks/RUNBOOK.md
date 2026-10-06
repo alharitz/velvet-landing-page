@@ -37,3 +37,6 @@ The owner reviews between tasks. The agent works autonomously inside one task, t
 4. Stop. Do NOT merge, do NOT start the next task, and do NOT print the report. The only message to the owner is one line:
    "TNN done|partial. Logged in tasks/PROGRESS.md. Blockers: none|yes (N)."
 5. If the owner asks to see a report, print that task's log entry only.
+
+## Log format (tasks/PROGRESS.md)
+A State block at the top (BASE_BRANCH, LAST_DONE, CURRENT, NEXT, OPEN_BLOCKERS, OWNER_ACTIONS), then one entry per task, newest first. Each entry has: Status (In progress, Done, or Partial); Branch; Task commit; Started and Finished timestamps; Summary (at most 5 lines); Criteria (PASS, FAIL, or NOT RUN with a one-line evidence each); Lint and build counts; Assumptions; Out-of-scope findings; Blockers; Owner actions; Checkpoints.

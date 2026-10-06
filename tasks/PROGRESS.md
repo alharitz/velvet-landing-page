@@ -1,68 +1,48 @@
+# Progress Log
+
 ## State
+- BASE_BRANCH: master
+- LAST_DONE: T06
+- CURRENT: none
+- NEXT: T07
+- OPEN_BLOCKERS: none
+- OWNER_ACTIONS:
+  1. Provide a business WhatsApp number via NEXT_PUBLIC_WHATSAPP_NUMBER when available.
+  2. Provide studio contact details via env vars (needed by T10).
+  3. Replace the placeholder social and marketplace handles in lib/site-config.ts with your own, since they may belong to unrelated real accounts.
+  4. Review sample content before any public sharing.
 
-BASE_BRANCH = master
-LAST_DONE = T06 (incomplete)
-CURRENT = none
-NEXT = T07
-OPEN_BLOCKERS = none
-OWNER_ACTIONS = 1. Provide a business WhatsApp number via NEXT_PUBLIC_WHATSAPP_NUMBER when available. 2. Provide studio contact details via env vars (needed by T10). 3. Replace placeholder social and marketplace handles in lib/site-config.ts with your own, as they may belong to unrelated real accounts. 4. Review sample content before any public sharing.
+---
 
-## T01 – Done
-- Status: Done
-- Branch: main
-- Commit: 6338691
-- Started: 2026-09-30 10:00
-- Finished: 2026-09-30 10:30
-- Summary: initial scaffold, basic config.
-- Criteria: PASS all.
-- Lint/Build: PASS.
-- Assumptions: none.
-- Blockers: none.
+## T06: SEO and Open Graph
+- **Status**: In progress (see git history and tasks/README.md)
+- **Branch**: (unknown, not yet merged)
+- **Task commit**: (pending)
+- **Started**: (from git log)
+- **Finished**: (pending)
+- **Summary**: SEO metadata, robots.txt, sitemap, Open Graph images verified. Need to complete verification steps.
+- **Criteria**: PASS/FAIL/NOT RUN per README and T06 spec.
+- **Lint / Build**: (pending)
+- **Assumptions**: (to be recorded)
+- **Out-of-scope findings**: (none)
+- **Blockers**: (none)
+- **Owner actions**: (listed in State block)
+- **Checkpoints**: (to be added)
 
-## T02 – Done
-- Status: Done
-- Branch: main
-- Commit: 68aef9b
-- Started: 2026-09-30 11:00
-- Finished: 2026-09-30 12:15
-- Summary: catalog page with filters.
-- Criteria: PASS.
-- Lint/Build: PASS.
+## T05: (completed before the log existed; see git history and tasks/README.md)
+- **Status**: Done
+- **Branch**: (merged)
+- **Task commit**: (from git log)
+- **Summary**: Task completed prior to this log.
 
-## T03 – Done
-- Status: Done
-- Branch: main
-- Commit: 536b612
-- Started: 2026-09-30 13:00
-- Finished: 2026-09-30 14:45
-- Summary: product detail page, WhatsApp CTAs.
-- Criteria: PASS.
+## T04: (completed before the log existed; see git history and tasks/README.md)
+- **Status**: Done
 
-## T04 – Done
-- Status: Done
-- Branch: main
-- Commit: daf8f4c
-- Started: 2026-09-30 15:00
-- Finished: 2026-09-30 15:45
-- Summary: FloatingWhatsApp, DemoBanner.
-- Criteria: PASS.
+## T03: (completed before the log existed; see git history and tasks/README.md)
+- **Status**: Done
 
-## T05 – Done
-- Status: Done
-- Branch: main
-- Commit: 33563a7
-- Started: 2026-10-01 09:00
-- Finished: 2026-10-01 11:30
-- Summary: homepage cleanup, dead links, placeholders.
-- Criteria: PASS.
+## T02: (completed before the log existed; see git history and tasks/README.md)
+- **Status**: Done
 
-## T06 – In progress
-- Status: In progress
-- Branch: t06-seo-og
-- Commit: 115b7b2
-- Started: 2026-10-05 17:52
-- Summary: SEO metadata, robots, OG images.
-- Criteria: Partial (some build checks pending).
-- Lint/Build: PASS (warnings only).
-- Assumptions: robots meta added manually.
-- Blockers: None.
+## T01: (completed before the log existed; see git history and tasks/README.md)
+- **Status**: Done
