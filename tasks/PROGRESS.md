@@ -3,8 +3,8 @@
 ## State
 - BASE_BRANCH: master
 - LAST_DONE: T11
-- CURRENT: none
-- NEXT: T12
+- CURRENT: T12
+- NEXT: T13
 - OPEN_BLOCKERS: none
 - OWNER_ACTIONS:
   1. Provide a business WhatsApp number via NEXT_PUBLIC_WHATSAPP_NUMBER when available.
@@ -13,6 +13,21 @@
   4. Review sample content before any public sharing.
 
 ---
+
+## T12: UI fixes: collection images, hero, and header
+- **Status**: In progress
+- **Branch**: t12-ui-fixes
+- **Task commit**: (pending)
+- **Started**: 2026-10-08 13:18
+- **Finished**: (pending)
+- **Summary**: (in progress)
+- **Criteria**: (in progress)
+- **Lint / Build**: (pending)
+- **Assumptions**: (pending)
+- **Out-of-scope findings**: none
+- **Blockers**: none
+- **Owner actions**: (listed in State block)
+- **Checkpoints**: started
 
 ## T11: Collection Naming and Global Navigation
 - **Status**: Done

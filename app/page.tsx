@@ -6,9 +6,7 @@ import FeaturedCollection from "@/components/FeaturedCollection";
 import BrowseByCategory from "@/components/BrowseByCategory";
 import BrandStory from "@/components/BrandStory";
 import Craft from "@/components/Craft";
-import FabricLibrary from "@/components/FabricLibrary";
-import Process from "@/components/Process";
-import Lookbook from "@/components/Lookbook";
+
 import Journal from "@/components/Journal";
 import Testimonials from "@/components/Testimonials";
 import WhereToBuy from "@/components/WhereToBuy";
@@ -23,10 +21,10 @@ export const metadata: Metadata = {
   alternates: { canonical: siteConfig.siteUrl },
   openGraph: {
         description: "Premium minimalist clothing designed with intention.",
-    type: "website",
-    url: siteConfig.siteUrl,
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "VELVET — Minimalist Luxury" }],
-  },
+        type: "website",
+        url: siteConfig.siteUrl,
+        images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "VELVET — Made to Be Kept" }],
+      },
   twitter: {
     card: "summary_large_image",
         description: "Premium minimalist clothing designed with intention.",
@@ -58,9 +56,6 @@ export default function Home() {
         <section id="craft" className="scroll-mt-24">
           <Craft />
         </section>
-        <FabricLibrary />
-        <Process />
-        <Lookbook />
         <section id="journal" className="scroll-mt-24">
           <Journal />
         </section>

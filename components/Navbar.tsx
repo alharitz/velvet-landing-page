@@ -78,16 +78,6 @@ export default function Navbar() {
               <FaWhatsapp size={16} />
               Where to Buy
             </a>
-            <a
-              href={waLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-black hover:text-accent transition-colors"
-              aria-label="Chat on WhatsApp"
-              title="Chat on WhatsApp"
-            >
-              <FaWhatsapp size={18} />
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -107,10 +97,9 @@ export default function Navbar() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={1.5}
-                d={
-                  mobileMenuOpen
-                    ? "M6 18L18 6M6 6l12 12"
-                    : "M3 6h18M3 12h18M3 18h18"
+                d={mobileMenuOpen
+                  ? "M6 18L18 6M6 6l12 12"
+                  : "M3 6h18M3 12h18M3 18h18"
                 }
               />
             </svg>
@@ -144,22 +133,22 @@ export default function Navbar() {
                     </Link>
                   );
                 })}
-                <div className="border-t border-light pt-3 mt-3 space-y-2">
-                  <a
-                    href={waLink()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block btn-primary text-center"
-                  >
-                    Chat on WhatsApp
-                  </a>
-                  <p className="text-xs text-text-secondary px-2">
-                    {siteConfig.whatsapp.display}
-                  </p>
-                  <p className="text-xs text-text-secondary px-2">
-                    {siteConfig.whatsapp.hours}
-                  </p>
-                </div>
+              </div>
+              <div className="border-t border-light pt-3 mt-3 space-y-2">
+                <a
+                  href={waLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block btn-primary text-center"
+                >
+                  Chat on WhatsApp
+                </a>
+                <p className="text-xs text-text-secondary px-2">
+                  {siteConfig.whatsapp.display}
+                </p>
+                <p className="text-xs text-text-secondary px-2">
+                  {siteConfig.whatsapp.hours}
+                </p>
               </div>
             </motion.div>
           )}

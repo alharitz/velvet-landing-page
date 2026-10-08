@@ -6,9 +6,9 @@ import { siteConfig, waLink } from "@/lib/site-config";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
+  
   type LinkItem = { label: string; href?: string; isText?: boolean };
-
+  
   const links: Record<string, LinkItem[]> = {
     Collection: [
       { label: "Outerwear", href: "/collection?category=outerwear" },
@@ -35,10 +35,10 @@ export default function Footer() {
       { label: siteConfig.whatsapp.display, href: waLink() },
     ],
   };
-
+  
   return (
     <footer
-      className="py-16 md:py-24"
+      className="py-20 md:py-28"
       style={{ backgroundColor: "var(--inverse-bg)", color: "var(--inverse-ink)" }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
@@ -54,12 +54,12 @@ export default function Footer() {
             ↑ Back to Top
           </button>
         </div>
-
+        
         {/* Brand Description */}
         <p className="max-w-md opacity-70 mb-16 md:mb-24">
           A curated showcase of minimalist luxury. Pieces designed to endure—in quality, in style, and in purpose.
         </p>
-
+        
         {/* Links Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 md:mb-24 pb-16 md:pb-24 border-t" style={{ borderColor: "rgba(236, 229, 218, 0.2)" }}>
           {Object.entries(links).map(([category, items]) => (
@@ -88,7 +88,7 @@ export default function Footer() {
             </div>
           ))}
         </div>
-
+        
         {/* Socials */}
         <div className="flex items-center gap-6 mb-12 pb-12 border-b" style={{ borderColor: "rgba(236, 229, 218, 0.2)" }}>
           <a
@@ -119,7 +119,7 @@ export default function Footer() {
             <FaWhatsapp size={20} />
           </a>
         </div>
-
+        
         {/* Copyright */}
         <p className="text-xs opacity-40">
           © {currentYear} {siteConfig.name}. Showcase site. Orders via WhatsApp and official stores.

@@ -29,7 +29,7 @@ export default function OpenGraphImage() {
           {siteConfig.tagline}
         </div>
         <div style={{ marginTop: 48, fontSize: 20, opacity: 0.5, letterSpacing: "0.2em" }}>
-          Minimalist Luxury
+          Made to Be Kept
         </div>
       </div>
     ),

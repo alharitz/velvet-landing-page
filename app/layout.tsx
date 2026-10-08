@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     locale: "en_ID",
     url: siteConfig.siteUrl,
     siteName: "VELVET",
-    title: "VELVET — Minimalist Luxury",
+    title: "VELVET — Made to Be Kept",
     description: "Premium minimalist clothing designed with intention.",
     images: [
       {
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VELVET — Minimalist Luxury",
+    title: "VELVET — Made to Be Kept",
     description: "Premium minimalist clothing designed with intention.",
     images: ["/opengraph-image"],
   },

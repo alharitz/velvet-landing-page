@@ -3,6 +3,7 @@
  * Every link in the app should use these helpers instead of hardcoding paths.
  */
 
+
 // ---------------------------------------------------------------------------
 // Collection (browse + detail)
 // ---------------------------------------------------------------------------
@@ -43,3 +44,16 @@ export const storyAnchor = "/#story";
 export const craftAnchor = "/#craft";
 export const journalAnchor = "/#journal";
 export const visitAnchor = "/#visit";
+
+// ---------------------------------------------------------------------------
+// ROUTES object for backward compatibility
+// ---------------------------------------------------------------------------
+
+export const ROUTES = {
+  collection: "/collection",
+  home: "/",
+  story: "/#story",
+  craft: "/#craft",
+  journal: "/#journal",
+  visit: "/#visit",
+} as const;

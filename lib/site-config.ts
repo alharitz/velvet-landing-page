@@ -52,6 +52,11 @@ export const siteConfig = {
     instagram: "https://instagram.com/velvet.official",
     tiktok: "https://www.tiktok.com/@velvet.official",
   },
+  hero: {
+    eyebrow: "SS26 Collection",
+    title: "Made to Be Kept",
+    subtext: "Merino, linen and cashmere essentials, cut with care and built to last.",
+  },
 };
 
 export function waLink(message?: string): string {
