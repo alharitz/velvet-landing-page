@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Benefits from "@/components/Benefits";
@@ -16,8 +15,6 @@ import WhereToBuy from "@/components/WhereToBuy";
 import VisitUs from "@/components/VisitUs";
 import FAQ from "@/components/FAQ";
 import Newsletter from "@/components/Newsletter";
-import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { siteConfig } from "@/lib/site-config";
 import { generateWebsiteJsonLd, generateOrganizationJsonLd } from "@/lib/seo";
 
@@ -47,8 +44,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([websiteJsonLd, organizationJsonLd]) }}
       />
-      <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <Marquee />
         <Benefits />
@@ -78,8 +74,6 @@ export default function Home() {
         <FAQ />
         <Newsletter />
       </main>
-      <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

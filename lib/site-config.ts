@@ -1,7 +1,7 @@
 // DUMMY DATA - replace before launch
 export const siteConfig = {
   name: "VELVET",
-  tagline: "Minimalist fashion from Jakarta",
+  tagline: "Made to Be Kept",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://velvet-landing-page-seven.vercel.app",
   allowIndexing: process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true",
   whatsapp: {

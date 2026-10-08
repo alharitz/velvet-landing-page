@@ -4,6 +4,8 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import DemoBanner from "@/components/DemoBanner";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { siteConfig } from "@/lib/site-config";
 
 const cormorant = Cormorant_Garamond({
@@ -24,7 +26,7 @@ export const metadataBase = new URL(siteConfig.siteUrl);
 export const metadata: Metadata = {
   metadataBase,
   title: {
-    default: "VELVET — Minimalist Luxury",
+    default: "VELVET — Made to Be Kept",
     template: "%s | VELVET",
   },
   description: "Premium minimalist clothing designed with intention. Premium fabrics, intentional design, sustainable practices.",
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "VELVET — Minimalist Luxury",
+        alt: "VELVET — Made to Be Kept",
       },
     ],
   },
@@ -75,9 +77,14 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=0.8" />
       </head>
       <body className={`${cormorant.variable} ${inter.variable} font-sans antialiased`}>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-white focus:text-black">
+          Skip to content
+        </a>
         <SmoothScroll />
         <DemoBanner />
+        <Navbar />
         {children}
+        <Footer />
         <FloatingWhatsApp />
       </body>
     </html>

@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa6";
 import { siteConfig, waLink } from "@/lib/site-config";
+import { collectionUrl, homeUrl, storyAnchor, craftAnchor, journalAnchor, visitAnchor } from "@/lib/routes";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,12 +18,14 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const pathname = usePathname();
+
   const navLinks = [
-    { label: "Collection", href: "/#collection" },
-    { label: "Story", href: "/#story" },
-    { label: "Craft", href: "/#craft" },
-    { label: "Journal", href: "/#journal" },
-    { label: "Visit", href: "/#visit" },
+    { label: "Collection", href: collectionUrl() },
+    { label: "Story", href: homeUrl === pathname ? storyAnchor : `/${storyAnchor}` },
+    { label: "Craft", href: homeUrl === pathname ? craftAnchor : `/${craftAnchor}` },
+    { label: "Journal", href: homeUrl === pathname ? journalAnchor : `/${journalAnchor}` },
+    { label: "Visit", href: homeUrl === pathname ? visitAnchor : `/${visitAnchor}` },
   ];
 
   return (
@@ -29,7 +33,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full top-6 z-50 transition-all duration-300 ${
+      className={`fixed w-full top-8 z-50 transition-all duration-300 ${
         isScrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
@@ -45,15 +49,21 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-black hover:text-accent transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.label === "Collection" && pathname?.startsWith("/collection");
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`text-sm font-medium transition-colors ${
+                    isActive ? "text-accent" : "text-black hover:text-accent"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Desktop Buttons */}
@@ -118,16 +128,22 @@ export default function Navbar() {
               className="md:hidden bg-white/95 border-t border-light py-4"
             >
               <div className="space-y-3 px-2">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block text-sm font-medium text-black hover:text-accent py-2"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = link.label === "Collection" && pathname?.startsWith("/collection");
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`block text-sm font-medium py-2 ${
+                        isActive ? "text-accent" : "text-black hover:text-accent"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
                 <div className="border-t border-light pt-3 mt-3 space-y-2">
                   <a
                     href={waLink()}

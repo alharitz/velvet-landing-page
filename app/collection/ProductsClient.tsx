@@ -130,8 +130,8 @@ function ProductCard({ product }: { product: Product }) {
       className="flex flex-col group"
     >
       <a
-        href={`/products/${product.slug}`}
-        className="relative mb-6 overflow-hidden bg-gray-100 block"
+        href={productUrl(product.slug)}
+        className="relative mb-6 overflow-hidden bg-gray-100 block aspect-[4_5]"
         aria-label={`View ${product.name}`}
       >
         <Image
@@ -598,7 +598,10 @@ function ProductsHeader({
   );
 }
 
-export function ProductsClient() {
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { productUrl, homeUrl } from "@/lib/routes";
+
+export function ProductsClient({ pieceCount }: { pieceCount: number }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -643,6 +646,7 @@ export function ProductsClient() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 py-12">
+      <Breadcrumbs items={[{ label: "Home", href: homeUrl }, { label: "Collection" }]} />
       {/* Page Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -650,11 +654,11 @@ export function ProductsClient() {
         transition={{ duration: 0.6 }}
         className="mb-12 md:mb-16"
       >
-        <small className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--muted)" }}>
-          Catalog
-        </small>
-        <h1 className="text-4xl md:text-5xl font-600 mt-4">
-          All Products
+        <p className="text-base mb-2" style={{ color: "var(--muted)" }}>
+          {pieceCount} pieces
+        </p>
+        <h1 className="text-4xl md:text-5xl font-600 mt-2">
+          Collection
         </h1>
       </motion.div>
 

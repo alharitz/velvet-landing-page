@@ -14,13 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/products`,
+      url: `${baseUrl}/collection`,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.8,
     },
     ...products.map((product) => ({
-      url: `${baseUrl}/products/${product.slug}`,
+      url: `${baseUrl}/collection/${product.slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.6,

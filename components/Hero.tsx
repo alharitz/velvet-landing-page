@@ -46,7 +46,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-inverse mt-6 mb-6"
           >
-            Minimalist Luxury
+            Made to Be Kept
           </motion.h1>
 
           <motion.p
@@ -55,7 +55,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-inverse max-w-lg mb-10"
           >
-            Premium fabrics, intentional design, sustainable practices. Pieces crafted to endure.
+            Merino, linen and cashmere essentials, cut with care and built to last.
           </motion.p>
 
           <motion.div
