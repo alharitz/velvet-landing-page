@@ -8,6 +8,8 @@ import { Button } from "@/components/Button";
 import { formatIDR, type Product, type MarketplaceLink } from "@/lib/products";
 import { siteConfig, waLink, mapLink } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { collectionUrl, homeUrl } from "@/lib/routes";
 
 interface ProductDetailClientProps {
   product: Product | undefined;
@@ -38,7 +40,7 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
     return (
       <div className="container-shared py-20 text-center">
         <h1 className="text-2xl font-semibold mb-4">Product Not Found</h1>
-        <Button variant="primary" onClick={() => window.history.back()}>Back to Catalog</Button>
+        <Button variant="primary" onClick={() => window.location.href = collectionUrl()}>Back to Collection</Button>
       </div>
     );
   }
@@ -71,7 +73,12 @@ export default function ProductDetailClient({ product }: ProductDetailClientProp
     <article className="pt-12 pb-20">
       {/* Gallery Section */}
       <section className="container-shared mb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <Breadcrumbs items={[
+          { label: "Home", href: homeUrl },
+          { label: "Collection", href: collectionUrl() },
+          { label: product.name }
+        ]} />
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Main Image */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

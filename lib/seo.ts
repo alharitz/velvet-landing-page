@@ -30,7 +30,7 @@ export function generateWebsiteJsonLd(): object {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: `${siteConfig.siteUrl}/products?search={search_term_string}`,
+        urlTemplate: `${siteConfig.siteUrl}/collection?search={search_term_string}`,
       },
       "query-input": "required name=search_term_string",
     },

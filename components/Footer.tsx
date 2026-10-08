@@ -11,10 +11,10 @@ export default function Footer() {
 
   const links: Record<string, LinkItem[]> = {
     Collection: [
-      { label: "Outerwear", href: "/products?category=outerwear" },
-      { label: "Knitwear", href: "/products?category=knitwear" },
-      { label: "Trousers", href: "/products?category=trousers" },
-      { label: "Essentials", href: "/products?category=essentials" },
+      { label: "Outerwear", href: "/collection?category=outerwear" },
+      { label: "Knitwear", href: "/collection?category=knitwear" },
+      { label: "Trousers", href: "/collection?category=trousers" },
+      { label: "Essentials", href: "/collection?category=essentials" },
     ],
     Company: [
       { label: "Our Story", href: "/#story" },

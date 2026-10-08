@@ -2,9 +2,9 @@
 
 ## State
 - BASE_BRANCH: master
-- LAST_DONE: T06
+- LAST_DONE: T11
 - CURRENT: none
-- NEXT: T07
+- NEXT: T12
 - OPEN_BLOCKERS: none
 - OWNER_ACTIONS:
   1. Provide a business WhatsApp number via NEXT_PUBLIC_WHATSAPP_NUMBER when available.
@@ -13,6 +13,10 @@
   4. Review sample content before any public sharing.
 
 ---
+
+## T11: Collection Naming and Global Navigation
+- **Status**: Done
+- **Summary**: Renamed /products to /collection, created centralized lib/routes.ts, moved Navbar/Footer to layout.tsx, and added breadcrumbs.
 
 ## T06: SEO and Open Graph
 - **Status**: In progress (see git history and tasks/README.md)

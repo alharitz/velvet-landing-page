@@ -26,7 +26,7 @@
 | T08 | Social section and share buttons | 2 | T03 | Planned (file not written yet) |
 | T09 | Minimal Journal pages | n/a | n/a | Superseded by T13 |
 | T10 | Case study page and services CTA | 3 | T01 to T07, T11 to T14 | Planned (file not written yet) |
-| T11 | Collection naming, global navigation, and breadcrumbs | 1 | T01 to T05 | Todo |
+| T11 | Collection naming, global navigation, and breadcrumbs | 1 | T01 to T05 | Done |
 | T12 | UI fixes: collection images, hero, header | 1 | T11 | Todo |
 | T13 | Journal: list page, three articles, homepage links | 1 | T11 | Todo |
 | T15 | Product detail page v2 (gallery, actions, visit request, related pieces) | 1 | T11, T12 | Todo |

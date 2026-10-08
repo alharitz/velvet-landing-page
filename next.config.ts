@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
     ],
     qualities: [75, 90],
   },
+  async redirects() {
+    return [
+      {
+        source: '/products',
+        destination: '/collection',
+        permanent: true,
+      },
+      {
+        source: '/products/:slug',
+        destination: '/collection/:slug',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;

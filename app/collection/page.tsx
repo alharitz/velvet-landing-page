@@ -2,37 +2,40 @@ import { Suspense } from "react";
 import { Metadata } from "next";
 import { ProductsClient } from "./ProductsClient";
 import { siteConfig } from "@/lib/site-config";
+import { collectionUrl } from "@/lib/routes";
+import { getAllProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Catalog",
+  title: "Collection",
   description: "Browse our full collection of premium apparel.",
-  alternates: { canonical: `${siteConfig.siteUrl}/products` },
+  alternates: { canonical: `${siteConfig.siteUrl}${collectionUrl()}` },
   openGraph: {
-    title: "Catalog — VELVET",
+    title: "Collection — VELVET",
     description: "Browse our full collection of premium apparel.",
     type: "website",
-    url: `${siteConfig.siteUrl}/products`,
+    url: `${siteConfig.siteUrl}${collectionUrl()}`,
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Catalog — VELVET",
+    title: "Collection — VELVET",
     description: "Browse our full collection of premium apparel.",
     images: ["/opengraph-image"],
   },
 };
 
-export default function ProductsPage() {
+export default function CollectionPage() {
+  const pieceCount = getAllProducts().length;
   return (
-    <main className="min-h-screen bg-white">
-      <Suspense fallback={<CatalogSkeleton />}>
-        <ProductsClient />
+    <main id="main-content" className="min-h-screen bg-white">
+      <Suspense fallback={<CollectionSkeleton />}>
+        <ProductsClient pieceCount={pieceCount} />
       </Suspense>
     </main>
   );
 }
 
-function CatalogSkeleton() {
+function CollectionSkeleton() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 py-12">
       <div className="flex gap-8 lg:gap-12">

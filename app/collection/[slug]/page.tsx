@@ -4,6 +4,7 @@ import { getAllProducts, getProductBySlug } from "@/lib/products";
 import { siteConfig } from "@/lib/site-config";
 import ProductDetailClient from "./ProductDetailClient";
 import { generateProductJsonLd } from "@/lib/seo";
+import { productUrl } from "@/lib/routes";
 
 export async function generateStaticParams() {
   const products = getAllProducts();
@@ -25,17 +26,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const productUrl = `${siteConfig.siteUrl}/products/${slug}`;
+  const productAbsoluteUrl = `${siteConfig.siteUrl}${productUrl(slug)}`;
 
   return {
     title: product.name,
     description: product.description,
-    alternates: { canonical: productUrl },
+    alternates: { canonical: productAbsoluteUrl },
     openGraph: {
       title: product.name,
       description: product.description,
       type: "website",
-      url: productUrl,
+      url: productAbsoluteUrl,
       images: product.images[0]
         ? [{ url: `${siteConfig.siteUrl}${product.images[0]}`, width: 1200, height: 1600, alt: `${product.name} - ${product.material}` }]
         : [{ url: "/opengraph-image", width: 1200, height: 630, alt: product.name }],
@@ -57,8 +58,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const productUrl = `${siteConfig.siteUrl}/products/${slug}`;
-  const jsonLd = generateProductJsonLd(product, productUrl);
+  const productAbsoluteUrl = `${siteConfig.siteUrl}${productUrl(slug)}`;
+  const jsonLd = generateProductJsonLd(product, productAbsoluteUrl);
 
   return (
     <>
