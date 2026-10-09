@@ -131,7 +131,7 @@ function ProductCard({ product }: { product: Product }) {
     >
       <a
         href={productUrl(product.slug)}
-        className="relative mb-6 overflow-hidden bg-gray-100 block aspect-[4_5]"
+        className="relative mb-6 overflow-hidden bg-gray-100 block aspect-[4/5]"
         aria-label={`View ${product.name}`}
       >
         <Image
