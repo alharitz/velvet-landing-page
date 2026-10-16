@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import MotionProvider from "@/components/MotionProvider";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import DemoBanner from "@/components/DemoBanner";
 import Navbar from "@/components/Navbar";
@@ -9,14 +10,14 @@ import Footer from "@/components/Footer";
 import { siteConfig } from "@/lib/site-config";
 
 const cormorant = Cormorant_Garamond({
-  variable: "--font-serif",
+  variable: "--font-velvet-serif",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const inter = Inter({
-  variable: "--font-sans",
+  variable: "--font-velvet-sans",
   subsets: ["latin"],
   display: "swap",
 });
@@ -74,18 +75,19 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         { !siteConfig.allowIndexing && <meta name="robots" content="noindex, nofollow" /> }
-        <meta name="viewport" content="width=device-width, initial-scale=0.8" />
       </head>
       <body className={`${cormorant.variable} ${inter.variable} font-sans antialiased`}>
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-white focus:text-black">
           Skip to content
         </a>
-        <SmoothScroll />
-        <DemoBanner />
-        <Navbar />
-        {children}
-        <Footer />
-        <FloatingWhatsApp />
+        <MotionProvider>
+          <SmoothScroll />
+          <DemoBanner />
+          <Navbar />
+          {children}
+          <Footer />
+          <FloatingWhatsApp />
+        </MotionProvider>
       </body>
     </html>
   );

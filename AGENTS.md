@@ -14,3 +14,5 @@ For UI work, use the frontend-design / UI-UX skill if one is available; otherwis
 
 
 Product context lives in `docs/PRODUCT_BRIEF.md`, work items live in `tasks/` (see `tasks/README.md`). Agents must work on one task per session and follow the report format in `tasks/README.md`.
+
+Role ownership, delegation, parallel file ownership, document authority and model selection are defined in `docs/AGENT_WORKFLOW.md`. Professor plans; Master coordinates and verifies; Sarjana writes routine code; Admin audits. One task per worker session, at most two independent coding workers initially. Master alone reconciles shared task status after verification. Historical summaries are orientation, not authoritative status.

@@ -38,14 +38,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "website",
       url: productAbsoluteUrl,
       images: product.images[0]
-        ? [{ url: `${siteConfig.siteUrl}${product.images[0]}`, width: 1200, height: 1600, alt: `${product.name} - ${product.material}` }]
+        ? [{ url: `${siteConfig.siteUrl}${product.images[0].src}`, width: 1200, height: 1600, alt: `${product.name} - ${product.material}` }]
         : [{ url: "/opengraph-image", width: 1200, height: 630, alt: product.name }],
     },
     twitter: {
       card: "summary_large_image",
       title: product.name,
       description: product.description,
-      images: product.images[0] ? [`${siteConfig.siteUrl}${product.images[0]}`] : ["/opengraph-image"],
+      images: product.images[0] ? [`${siteConfig.siteUrl}${product.images[0].src}`] : ["/opengraph-image"],
     },
   };
 }

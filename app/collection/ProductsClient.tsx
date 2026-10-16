@@ -121,7 +121,7 @@ function sortProducts(products: Product[], sort: SortOption): Product[] {
   }
 }
 
-function ProductCard({ product }: { product: Product }) {
+export function ProductCard({ product }: { product: Product }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -135,7 +135,7 @@ function ProductCard({ product }: { product: Product }) {
         aria-label={`View ${product.name}`}
       >
         <Image
-          src={product.images[0] || "/images/placeholder.jpg"}
+          src={product.images[0]?.src || "/images/placeholder.jpg"}
           alt={product.name}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -179,6 +179,7 @@ function FilterDrawer({
   activeFilterCount: number;
 }) {
   const focusedElementRef = useRef<HTMLElement | null>(null);
+  const drawerRef = useRef<HTMLElement | null>(null);
   const categories = getCategoriesWithCounts();
   const materials = getUniqueMaterials(products);
   const statuses = getUniqueStatuses(products);
@@ -188,8 +189,15 @@ function FilterDrawer({
     if (isOpen) {
       focusedElementRef.current = document.activeElement as HTMLElement;
       document.body.style.overflow = "hidden";
+      drawerRef.current?.querySelector<HTMLElement>("button")?.focus();
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === "Escape") onClose();
+        if (e.key === "Tab" && drawerRef.current) {
+          const controls = [...drawerRef.current.querySelectorAll<HTMLElement>('button, input, select, a[href]')];
+          const first = controls[0], last = controls[controls.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+        }
       };
       document.addEventListener("keydown", handleKeyDown);
       return () => {
@@ -208,7 +216,7 @@ function FilterDrawer({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 lg:hidden"
+        className="fixed inset-0 z-[70] lg:hidden"
         role="dialog"
         aria-modal="true"
         aria-labelledby="filter-drawer-title"
@@ -222,6 +230,7 @@ function FilterDrawer({
           aria-hidden="true"
         />
         <motion.aside
+          ref={drawerRef}
           initial={{ x: "100%" }}
           animate={{ x: 0 }}
           exit={{ x: "100%" }}

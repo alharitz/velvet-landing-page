@@ -17,20 +17,30 @@ export interface Product {
   price: number; // in IDR, integer
   status: ProductStatus;
   description: string;
-  images: string[]; // paths under public/images
+  images: { src: string; alt: string }[];
+  shortDescription: string;
+  longDescription: string;
+  details: Array<{ label: string; value: string }>;
+  sizes: string[];
+  care: string;
   marketplaceLinks?: MarketplaceLink;
 }
 
 export const products: Product[] = [
   {
     slug: "essential-crew-neck",
-    name: "Essential Crew Neck",
+    name: "Editorial Look 01",
     category: "Essentials",
-    material: "Organic Cotton",
+    material: "Visual reference",
     price: 590000,
     status: "available",
-    description: "Everyday crew neck t-shirt made from certified organic cotton. Relaxed fit with ribbed neckline.",
-    images: ["/images/collection-01.jpg"],
+    description: "Portfolio sample garment image; final product specifications require owner confirmation.",
+    images: [{ src: "/images/collection-01.jpg", alt: "Fashion editorial image" }],
+    shortDescription: "A considered everyday piece from the Velvet collection.",
+    longDescription: "Fictional portfolio content with a sample image, price, and sizes. This visual reference does not establish garment specifications or real availability.",
+    details: [{ label: "Category", value: "Essentials" }, { label: "Image", value: "Visual reference only" }],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    care: "Follow the garment care label and ask Velvet to confirm care instructions for the final piece.",
     marketplaceLinks: {
       shopee: "https://shopee.co.id/velvet.official",
       tokopedia: "https://www.tokopedia.com/velvet-official",
@@ -38,13 +48,18 @@ export const products: Product[] = [
   },
   {
     slug: "relaxed-linen-shirt",
-    name: "Relaxed Linen Shirt",
+    name: "Editorial Look 02",
     category: "Essentials",
-    material: "European Linen",
+    material: "Visual reference",
     price: 790000,
     status: "available",
-    description: "Lightweight linen shirt with a relaxed silhouette. Breathable fabric ideal for warm weather.",
-    images: ["/images/collection-02.jpg"],
+    description: "Portfolio sample garment image; final product specifications require owner confirmation.",
+    images: [{ src: "/images/collection-02.jpg", alt: "Fashion editorial image" }],
+    shortDescription: "A considered everyday piece from the Velvet collection.",
+    longDescription: "Fictional portfolio content with a sample image, price, and sizes. This visual reference does not establish garment specifications or real availability.",
+    details: [{ label: "Category", value: "Essentials" }, { label: "Image", value: "Visual reference only" }],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    care: "Follow the garment care label and ask Velvet to confirm care instructions for the final piece.",
     marketplaceLinks: {
       shopee: "https://shopee.co.id/velvet.official",
       tokopedia: "https://www.tokopedia.com/velvet-official",
@@ -53,13 +68,18 @@ export const products: Product[] = [
   },
   {
     slug: "tailored-wool-trousers",
-    name: "Tailored Wool Trousers",
+    name: "Editorial Look 03",
     category: "Trousers",
-    material: "Merino Wool",
+    material: "Visual reference",
     price: 1590000,
     status: "available",
-    description: "Tailored wool trousers with a clean finish. Mid-rise, straight-leg cut in merino wool.",
-    images: ["/images/collection-03.jpg"],
+    description: "Portfolio sample garment image; final product specifications require owner confirmation.",
+    images: [{ src: "/images/collection-03.jpg", alt: "Fashion editorial image" }],
+    shortDescription: "A considered everyday piece from the Velvet collection.",
+    longDescription: "Fictional portfolio content with a sample image, price, and sizes. This visual reference does not establish garment specifications or real availability.",
+    details: [{ label: "Category", value: "Trousers" }, { label: "Image", value: "Visual reference only" }],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    care: "Follow the garment care label and ask Velvet to confirm care instructions for the final piece.",
     marketplaceLinks: {
       shopee: "https://shopee.co.id/velvet.official",
       tokopedia: "https://www.tokopedia.com/velvet-official",
@@ -67,13 +87,18 @@ export const products: Product[] = [
   },
   {
     slug: "minimal-wool-coat",
-    name: "Minimal Wool Coat",
+    name: "Editorial Look 04",
     category: "Outerwear",
-    material: "Cashmere Blend",
+    material: "Visual reference",
     price: 3790000,
     status: "available",
-    description: "Minimalist wool coat in a cashmere blend. Clean lines, notch lapel, single-breasted closure.",
-    images: ["/images/collection-04.jpg"],
+    description: "Portfolio sample garment image; final product specifications require owner confirmation.",
+    images: [{ src: "/images/collection-04.jpg", alt: "Fashion editorial image" }],
+    shortDescription: "A considered everyday piece from the Velvet collection.",
+    longDescription: "Fictional portfolio content with a sample image, price, and sizes. This visual reference does not establish garment specifications or real availability.",
+    details: [{ label: "Category", value: "Outerwear" }, { label: "Image", value: "Visual reference only" }],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    care: "Follow the garment care label and ask Velvet to confirm care instructions for the final piece.",
     marketplaceLinks: {
       shopee: "https://shopee.co.id/velvet.official",
       tokopedia: "https://www.tokopedia.com/velvet-official",
@@ -81,13 +106,18 @@ export const products: Product[] = [
   },
   {
     slug: "cashmere-blend-sweater",
-    name: "Cashmere Blend Sweater",
+    name: "Editorial Look 05",
     category: "Knitwear",
-    material: "Cashmere Blend",
+    material: "Visual reference",
     price: 1690000,
     status: "available",
-    description: "Soft cashmere-blend sweater with a regular fit. Ribbed cuffs and hem.",
-    images: ["/images/collection-05.jpg"],
+    description: "Portfolio sample garment image; final product specifications require owner confirmation.",
+    images: [{ src: "/images/collection-05.jpg", alt: "Fashion editorial image" }],
+    shortDescription: "A considered everyday piece from the Velvet collection.",
+    longDescription: "Fictional portfolio content with a sample image, price, and sizes. This visual reference does not establish garment specifications or real availability.",
+    details: [{ label: "Category", value: "Knitwear" }, { label: "Image", value: "Visual reference only" }],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    care: "Follow the garment care label and ask Velvet to confirm care instructions for the final piece.",
     marketplaceLinks: {
       shopee: "https://shopee.co.id/velvet.official",
       tokopedia: "https://www.tokopedia.com/velvet-official",
@@ -95,13 +125,18 @@ export const products: Product[] = [
   },
   {
     slug: "structured-blazer",
-    name: "Structured Blazer",
+    name: "Editorial Look 06",
     category: "Outerwear",
-    material: "Wool Blend",
+    material: "Visual reference",
     price: 2490000,
     status: "available",
-    description: "Structured blazer in a wool blend. Notched lapel, two-button closure, functional cuff buttons.",
-    images: ["/images/collection-06.jpg"],
+    description: "Portfolio sample garment image; final product specifications require owner confirmation.",
+    images: [{ src: "/images/collection-06.jpg", alt: "Fashion editorial image" }],
+    shortDescription: "A considered everyday piece from the Velvet collection.",
+    longDescription: "Fictional portfolio content with a sample image, price, and sizes. This visual reference does not establish garment specifications or real availability.",
+    details: [{ label: "Category", value: "Outerwear" }, { label: "Image", value: "Visual reference only" }],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    care: "Follow the garment care label and ask Velvet to confirm care instructions for the final piece.",
     marketplaceLinks: {
       shopee: "https://shopee.co.id/velvet.official",
       tokopedia: "https://www.tokopedia.com/velvet-official",
@@ -109,13 +144,18 @@ export const products: Product[] = [
   },
   {
     slug: "organic-cotton-basics-set",
-    name: "Organic Cotton Basics Set",
+    name: "Editorial Look 07",
     category: "Essentials",
-    material: "Organic Cotton",
+    material: "Visual reference",
     price: 490000,
     status: "available",
-    description: "Set of two organic cotton basics. Crew neck and v-neck options in neutral tones.",
-    images: ["/images/collection-07.jpg"],
+    description: "Portfolio sample garment image; final product specifications require owner confirmation.",
+    images: [{ src: "/images/collection-07.jpg", alt: "Fashion editorial image" }],
+    shortDescription: "A considered everyday piece from the Velvet collection.",
+    longDescription: "Fictional portfolio content with a sample image, price, and sizes. This visual reference does not establish garment specifications or real availability.",
+    details: [{ label: "Category", value: "Essentials" }, { label: "Image", value: "Visual reference only" }],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    care: "Follow the garment care label and ask Velvet to confirm care instructions for the final piece.",
     marketplaceLinks: {
       shopee: "https://shopee.co.id/velvet.official",
       tokopedia: "https://www.tokopedia.com/velvet-official",
@@ -123,13 +163,18 @@ export const products: Product[] = [
   },
   {
     slug: "selvedge-denim",
-    name: "Selvedge Denim",
+    name: "Editorial Look 08",
     category: "Trousers",
-    material: "Japanese Selvedge",
+    material: "Visual reference",
     price: 1190000,
     status: "available",
-    description: "Japanese selvedge denim with a straight fit. Raw denim that develops character over time.",
-    images: ["/images/collection-08.jpg"],
+    description: "Portfolio sample garment image; final product specifications require owner confirmation.",
+    images: [{ src: "/images/collection-08.jpg", alt: "Fashion editorial image" }],
+    shortDescription: "A considered everyday piece from the Velvet collection.",
+    longDescription: "Fictional portfolio content with a sample image, price, and sizes. This visual reference does not establish garment specifications or real availability.",
+    details: [{ label: "Category", value: "Trousers" }, { label: "Image", value: "Visual reference only" }],
+    sizes: ["XS", "S", "M", "L", "XL"],
+    care: "Follow the garment care label and ask Velvet to confirm care instructions for the final piece.",
     marketplaceLinks: {
       shopee: "https://shopee.co.id/velvet.official",
       tokopedia: "https://www.tokopedia.com/velvet-official",
@@ -200,4 +245,15 @@ export function getProductsByCategory(category?: string): Product[] {
   return products.filter(
     (p) => p.category.toLowerCase() === category.toLowerCase()
   );
+}
+
+export function getRelatedProducts(slug: string, limit: number): Product[] {
+  const current = getProductBySlug(slug);
+  return products.filter((product) => product.slug !== slug).sort((a, b) => Number(b.category === current?.category) - Number(a.category === current?.category)).slice(0, limit);
+}
+
+export function getAdjacentProducts(slug: string): [Product, Product] {
+  const index = products.findIndex((product) => product.slug === slug);
+  const position = index < 0 ? 0 : index;
+  return [products[(position - 1 + products.length) % products.length], products[(position + 1) % products.length]];
 }

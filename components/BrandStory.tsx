@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import Link from "next/link";
+import { journalUrl } from "@/lib/routes";
 
 export default function BrandStory() {
   return (
@@ -47,8 +49,8 @@ export default function BrandStory() {
 
           {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
@@ -73,9 +75,12 @@ export default function BrandStory() {
               Founded on the principle that less is more, we focus on essential pieces constructed with uncompromising attention to detail. Every fabric is chosen for its integrity, every seam for its precision.
             </p>
 
-            <span className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-ink border-b-2 border-transparent pb-1 cursor-default">
-              Read Our Full Story
-            </span>
+            <Link
+              href={journalUrl()}
+              className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-ink border-b-2 border-transparent pb-1 cursor-default"
+            >
+              Explore the Journal
+            </Link>
           </motion.div>
         </div>
       </div>

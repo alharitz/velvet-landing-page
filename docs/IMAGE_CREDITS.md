@@ -1,0 +1,9 @@
+# Image credits
+
+T15 static portfolio demo acceptance under final D12 (2026-10-14), not public-release or license clearance: current collection assets are local, but their original source, author, and reuse license are not recorded or verifiable in this repository. They are therefore not claimed as freely licensed. No replacement or additional image was downloaded: public accessibility alone does not prove reuse permission.
+
+| Local file | Source URL | Author | License | Status |
+|---|---|---|---|---|
+| `/images/collection-01.jpg` through `/images/collection-08.jpg` | Unknown | Unknown | Unknown | Existing demo asset; provenance required before public use |
+
+Do not add credits from image appearance, filename, EXIF absence, or search-result availability. Official Unsplash/Pexels direct fetch HTTP 401 was reported by the coordinating session, not independently reproduced here; no source or license URL can be asserted for existing assets. Wikimedia Commons API was independently accessible: `https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=categorymembers&gcmtitle=Category:T-shirts&gcmtype=file&gcmlimit=8&prop=imageinfo&iiprop=url%7Cextmetadata` returned author/license metadata, including Judgefloro's CC0 file `https://commons.wikimedia.org/wiki/File:02123jfClothes_shirts_pants_in_Philippinesfvf_05.jpg` and license `http://creativecommons.org/publicdomain/zero/1.0/deed.en`. That candidate was not downloaded or visually matched and is not a credit for any local image. Owner must provide ownership evidence or per-file source page, author, explicit license URL, and a matching product shot before public use. Add matching replacement assets only with source URL, named author, explicit license/reuse terms, local dimensions/bytes, and product match verified.

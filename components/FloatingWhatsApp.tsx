@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { FaWhatsapp } from "react-icons/fa6";
 import { siteConfig, waLink } from "@/lib/site-config";
 
 export default function FloatingWhatsApp() {
+  const pathname = usePathname();
+  const isProduct = pathname.startsWith("/collection/");
   const [isVisible, setIsVisible] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
     typeof window !== "undefined"
@@ -35,7 +38,7 @@ export default function FloatingWhatsApp() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
       whileHover={{ scale: 1.1 }}
-      className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+      className={`${isProduct ? "hidden md:flex" : "flex"} fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 w-14 h-14 rounded-full items-center justify-center shadow-lg hover:shadow-xl transition-shadow`}
       style={{
         backgroundColor: "var(--ink)",
         color: "var(--background)",

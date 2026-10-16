@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-// import Image from "next/image"; // removed unused import
+import Image from "next/image";
 import { lookbookImages as generatedLookbook } from "@/lib/images.generated";
 import { looks } from "@/lib/lookbook";
 import { Pause, Play } from "lucide-react";
@@ -25,10 +25,12 @@ export default function Lookbook() {
         aria-hidden={hidden}
         tabIndex={hidden ? -1 : undefined}
       >
-        <img
+        <Image
           src={img.src}
           alt={img.title}
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes={idx % 2 === 0 ? "(min-width: 768px) 375px, 285px" : "(min-width: 768px) 400px, 304px"}
+          className="object-cover"
         />
         <div className="mt-2 text-sm uppercase">Look {(idx + 1).toString().padStart(2, "0")}</div>
         <div className="text-xs">{img.copy}</div>

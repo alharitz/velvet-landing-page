@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa6";
 import { siteConfig, waLink } from "@/lib/site-config";
-import { collectionUrl, homeUrl, storyAnchor, craftAnchor, journalAnchor, visitAnchor } from "@/lib/routes";
+import { collectionUrl, homeUrl, journalUrl, storyAnchor, craftAnchor, visitAnchor } from "@/lib/routes";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,7 +24,7 @@ export default function Navbar() {
     { label: "Collection", href: collectionUrl() },
     { label: "Story", href: homeUrl === pathname ? storyAnchor : `/${storyAnchor}` },
     { label: "Craft", href: homeUrl === pathname ? craftAnchor : `/${craftAnchor}` },
-    { label: "Journal", href: homeUrl === pathname ? journalAnchor : `/${journalAnchor}` },
+    { label: "Journal", href: journalUrl() },
     { label: "Visit", href: homeUrl === pathname ? visitAnchor : `/${visitAnchor}` },
   ];
 
@@ -33,8 +33,8 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full top-8 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+      className={`fixed w-full top-12 md:top-8 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-background/95"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
@@ -48,9 +48,11 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
-              const isActive = link.label === "Collection" && pathname?.startsWith("/collection");
+              const isActive =
+                (link.label === "Collection" && pathname?.startsWith("/collection")) ||
+                (link.label === "Journal" && pathname?.startsWith("/journal"));
               return (
                 <Link
                   key={link.label}
@@ -67,7 +69,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Buttons */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <a
               href={waLink()}
               target="_blank"
@@ -84,8 +86,11 @@ export default function Navbar() {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            onKeyDown={(event) => { if (event.key === "Escape") setMobileMenuOpen(false); }}
           >
             <svg
               className="w-6 h-6"
@@ -114,11 +119,18 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden bg-white/95 border-t border-light py-4"
+              id="mobile-navigation"
+              onKeyDown={(event) => { if (event.key === "Escape") { setMobileMenuOpen(false); document.querySelector<HTMLButtonElement>('[aria-label="Toggle menu"]')?.focus(); } }}
+              className="lg:hidden bg-background border-t border-line py-4 max-h-[calc(100dvh-7rem)] overflow-y-auto"
             >
               <div className="space-y-3 px-2">
                 {navLinks.map((link) => {
-                  const isActive = link.label === "Collection" && pathname?.startsWith("/collection");
+                  let isActive = false;
+               if (link.label === "Collection") {
+                 isActive = pathname?.startsWith("/collection");
+               } else if (link.label === "Journal") {
+                 isActive = pathname?.startsWith("/journal");
+               }
                   return (
                     <Link
                       key={link.label}

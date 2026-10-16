@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-inverse-bg: var(--inverse-bg);
+  --color-inverse-ink: var(--inverse-ink);
+  --font-serif: var(--font-velvet-serif);
+  --font-sans: var(--font-velvet-sans);
+}
+
+
 @layer base {
   :root {
     --background: #F6F2EC;
@@ -54,7 +68,7 @@
   p {
     @apply text-base md:text-lg;
     line-height: 1.7;
-    color: var(--ink);
+    color: inherit;
   }
 
   small {
@@ -82,9 +96,17 @@
     @apply font-sans;
   }
 
-  input:focus,
-  textarea:focus {
-    @apply outline-none;
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  body:has([data-product-actions]) footer {
+    padding-bottom: calc(8rem + env(safe-area-inset-bottom));
+  }
+
+  @media (min-width: 768px) {
+    body:has([data-product-actions]) footer { padding-bottom: 0; }
   }
 
   /* Scrollbar */
@@ -222,6 +244,10 @@
 .carousel[data-paused="true"] .track { animation-play-state: paused; }
 
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
     * {
       @apply !animate-none !transition-none;
     }

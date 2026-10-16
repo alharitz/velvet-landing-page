@@ -53,9 +53,9 @@ export default function Benefits() {
                   className="mb-4 mx-auto md:mx-0"
                   style={{ color: "var(--accent)" }}
                 />
-                <h4 className="mb-2" style={{ color: "var(--ink)" }}>
+                <h2 className="mb-2" style={{ color: "var(--ink)" }}>
                   {benefit.title}
-                </h4>
+                </h2>
                 <p className="text-sm" style={{ color: "var(--muted)" }}>
                   {benefit.subtitle}
                 </p>

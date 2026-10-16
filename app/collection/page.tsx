@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function CollectionPage() {
   const pieceCount = getAllProducts().length;
   return (
-    <main id="main-content" className="min-h-screen bg-white">
+    <main id="main-content" className="min-h-screen bg-white pt-36 md:pt-32 pb-20">
       <Suspense fallback={<CollectionSkeleton />}>
         <ProductsClient pieceCount={pieceCount} />
       </Suspense>

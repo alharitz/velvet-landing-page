@@ -1,4 +1,17 @@
 // DUMMY DATA - replace before launch
+const storeHoursStructured = {
+  weekdays: { open: "10:00", close: "20:00", days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] },
+  weekend: { open: "11:00", close: "18:00", days: ["Sun"] }
+};
+
+function generateStoreHoursString() {
+  const weekdays = storeHoursStructured.weekdays;
+  const weekend = storeHoursStructured.weekend;
+  const weekdayDays = `${weekdays.days[0]}-${weekdays.days[weekdays.days.length - 1]}`; // Mon-Sat
+  const weekendDay = weekend.days[0]; // Sun
+  return `${weekdayDays} ${weekdays.open}-${weekdays.close} WIB, ${weekendDay} ${weekend.open}-${weekend.close} WIB`;
+}
+
 export const siteConfig = {
   name: "VELVET",
   tagline: "Made to Be Kept",
@@ -17,7 +30,7 @@ export const siteConfig = {
     line2: "Kemang, Jakarta Selatan 12730",
     country: "Indonesia",
   },
-  storeHours: "Mon-Sat 10:00-20:00 WIB, Sun 11:00-18:00 WIB",
+  storeHours: generateStoreHoursString(),
   map: {
     query: "Jl. Kemang Raya No. 88, Kemang, Jakarta Selatan 12730, Indonesia",
   },
@@ -58,6 +71,9 @@ export const siteConfig = {
     subtext: "Merino, linen and cashmere essentials, cut with care and built to last.",
   },
 };
+
+// Structured store hours for validation and display
+export { storeHoursStructured };
 
 export function waLink(message?: string): string {
   const msg = message ?? siteConfig.whatsapp.defaultMessage;

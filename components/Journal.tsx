@@ -1,112 +1,75 @@
 "use client";
 
-import { motion } from "motion/react";
+import Link from "next/link";
 import SmartImage from "@/components/SmartImage";
-import { imageRegistry } from "@/lib/images";
-
-const articles = [
-  {
-    category: "Fabric",
-    title: "The Art of Merino: A Journey to Tasmania",
-    excerpt: "Exploring the heritage mills where our signature fabric originates and the craftspeople who preserve traditional weaving techniques.",
-    date: "Oct 15, 2024",
-    readTime: "5 min read",
-    imageKey: "01",
-  },
-  {
-    category: "Sustainability",
-    title: "Our 5-Year Repair Commitment",
-    excerpt: "How we're building a more responsible fashion future by standing behind every piece we create for the lifetime of its wearer.",
-    date: "Oct 8, 2024",
-    readTime: "4 min read",
-    imageKey: "02",
-  },
-  {
-    category: "Behind the Scenes",
-    title: "Meet the Artisans",
-    excerpt: "Stories from the 14 craftspeople and atelier teams who bring VELVET pieces to life with precision and dedication.",
-    date: "Sep 30, 2024",
-    readTime: "6 min read",
-    imageKey: "03",
-  },
-];
+import { getAllArticles, formatDate, getReadTime } from "@/lib/journal";
+import { journalUrl, journalArticleUrl } from "@/lib/routes";
 
 export default function Journal() {
+  const articles = getAllArticles();
+
   return (
     <section id="journal" className="py-20 md:py-28 bg-white scroll-mt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between"
-        >
+        <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between">
           <div>
             <small className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--muted)" }}>
-              Stories
+              JOURNAL
             </small>
             <h2 className="text-4xl md:text-5xl font-600 mt-4">
-              From Our Journal
+              Journal
             </h2>
           </div>
-          <span className="mt-6 md:mt-0 btn-text cursor-default" style={{ color: "var(--muted)" }}>
-            Read All Stories
-          </span>
-        </motion.div>
+          <Link
+            href={journalUrl()}
+            className="mt-6 md:mt-0 btn-text"
+            style={{ color: "var(--muted)" }}
+          >
+            Read the Journal
+          </Link>
+        </div>
 
         {/* Articles Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {articles.map((article, idx) => (
-            <motion.article
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group flex flex-col h-full"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {articles.map((article) => (
+            <Link
+              key={article.slug}
+              href={journalArticleUrl(article.slug)}
+              className="group flex flex-col h-full hover:no-underline"
             >
               {/* Image */}
               <div className="relative aspect-video bg-gray-100 mb-6 overflow-hidden">
                 <SmartImage
-                  src={
-                    imageRegistry.journal[
-                      article.imageKey as keyof typeof imageRegistry.journal
-                    ]?.src || "/images/placeholder.jpg"
-                  }
-                  alt={article.title}
-                  label={article.category}
+                  src={article.cover.src}
+                  alt={article.cover.alt}
+                  label={article.title}
                   aspectRatio="16/9"
-                  className="group-hover:scale-105 transition-transform duration-300"
+                  className="object-cover w-full h-full"
                 />
               </div>
 
               {/* Content */}
-              <small style={{ color: "var(--accent)" }} className="font-semibold uppercase tracking-wider mb-3">
-                {article.category}
-              </small>
-              <h3 className="text-lg font-600 mb-3 group-hover:text-accent transition-colors line-clamp-2">
-                {article.title}
-              </h3>
-              <p className="text-sm mb-6 flex-1" style={{ color: "var(--muted)" }}>
-                {article.excerpt}
-              </p>
+              <div className="flex-1 flex flex-col">
+                <small style={{ color: "var(--accent)" }} className="font-semibold uppercase tracking-wider mb-3">
+                  {article.category}
+                </small>
+                <h3 className="text-lg font-600 mb-3 group-hover:text-accent transition-colors line-clamp-2">
+                  {article.title}
+                </h3>
+                <p className="text-sm mb-6 flex-1" style={{ color: "var(--muted)" }}>
+                  {article.excerpt}
+                </p>
 
-              {/* Meta */}
-              <div className="flex items-center justify-between text-xs" style={{ color: "var(--muted)" }}>
-                <span>{article.date}</span>
-                <span>{article.readTime}</span>
+                {/* Meta */}
+                <div className="flex items-center justify-between text-xs" style={{ color: "var(--muted)" }}>
+                  <span>{formatDate(article.date)}</span>
+                  <span>{getReadTime(article.body)}</span>
+                </div>
               </div>
-            </motion.article>
+            </Link>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

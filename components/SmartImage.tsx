@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 
 interface SmartImageProps {
@@ -23,29 +23,21 @@ export default function SmartImage({
   aspectRatio = "3/4",
 }: SmartImageProps) {
   const imgRef = useRef<HTMLImageElement>(null);
-  const [failed, setFailed] = useState(false);
-
-  useEffect(() => {
-    if (!imgRef.current) return;
-    // Check for images that failed before hydration
-    if (imgRef.current.complete && imgRef.current.naturalWidth === 0) {
-      setFailed(true);
-    }
-    if (process.env.NODE_ENV !== 'production') {
-      // Development only warning for failed images
-      if (failed) {
-        console.warn('[SmartImage] failed:', src);
-      }
-    }
-  }, []);
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  const failed = failedSrc === src;
 
   const handleError = () => {
-    setFailed(true);
+    setFailedSrc(src);
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn('[SmartImage] failed (onError):', src);
+    }
   };
 
   if (failed) {
     return (
       <div
+        role="img"
+        aria-label={alt}
         className={`relative w-full bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] flex items-end justify-start overflow-hidden ${className}`}
         style={{
           aspectRatio: aspectRatio,
@@ -70,6 +62,7 @@ export default function SmartImage({
   return (
     <div className={`relative w-full ${className}`} style={{ aspectRatio }}>
       <Image
+        key={src}
         ref={imgRef}
         src={src}
         alt={alt}

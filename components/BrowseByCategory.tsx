@@ -6,6 +6,7 @@ import { imageRegistry } from "@/lib/images";
 import { ArrowUpRight } from "lucide-react";
 import { getCategoriesWithCounts } from "@/lib/products";
 import Link from "next/link";
+import { collectionUrl } from "@/lib/routes";
 
 export default function BrowseByCategory() {
   const categories = getCategoriesWithCounts();
@@ -22,7 +23,7 @@ export default function BrowseByCategory() {
           className="mb-12 md:mb-16"
         >
           <small className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--muted)" }}>
-            Shop by Category
+            Browse by Category
           </small>
           <h2 className="text-4xl md:text-5xl font-600 mt-4">
             Browse the Collection
@@ -45,7 +46,8 @@ export default function BrowseByCategory() {
               Essentials: "lg:col-span-2 lg:row-span-1",
             };
             const span = spanMap[cat.name] ?? "lg:col-span-1 lg:row-span-1";
-            const imageKey = cat.name.toLowerCase();
+            // Essentials uses existing accessories visual; no placeholder request or invented image.
+            const imageKey = cat.name === "Essentials" ? "accessories" : cat.name.toLowerCase();
             const categoryImage = imageRegistry.category[
               imageKey as keyof typeof imageRegistry.category
             ];
@@ -53,7 +55,7 @@ export default function BrowseByCategory() {
             return (
               <Link
                 key={cat.name}
-                href={`/products?category=${cat.name.toLowerCase()}`}
+                href={collectionUrl(cat.name.toLowerCase())}
                 className={`group relative overflow-hidden bg-gray-100 ${span} block`}
               >
                 <SmartImage

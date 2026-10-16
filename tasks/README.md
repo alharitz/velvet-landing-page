@@ -22,15 +22,16 @@
 | T04 | Floating WhatsApp button and demo banner | 1 | T01 | Done (FloatingWhatsApp + DemoBanner implemented) |
 | T05 | Homepage cleanup (dead links, placeholders, lookbook, map) | 1 | T01 | Done (spec: tasks/T05-homepage-cleanup.md) |
 | T06 | SEO and Open Graph images | 2 | T02, T03, T11, T13 | In Progress (spec: tasks/T06-seo-and-open-graph.md) |
-| T07 | Analytics event tracking | 2 | T03, T04, T11 | Planned (file not written yet) |
-| T08 | Social section and share buttons | 2 | T03 | Planned (file not written yet) |
+| T07 | Analytics event tracking | 2 | T03, T04, T11 | Planned (spec: tasks/T07-analytics-events.md) |
+| T08 | Social section and share buttons | 2 | T03 | Planned (spec: tasks/T08-social-and-share.md) |
 | T09 | Minimal Journal pages | n/a | n/a | Superseded by T13 |
-| T10 | Case study page and services CTA | 3 | T01 to T07, T11 to T14 | Planned (file not written yet) |
+| T10 | Case study page and services CTA | 3 | T01 to T07, T11 to T14 | Planned (spec: tasks/T10-case-study.md) |
 | T11 | Collection naming, global navigation, and breadcrumbs | 1 | T01 to T05 | Done |
-| T12 | UI fixes: collection images, hero, header | 1 | T11 | Todo |
-| T13 | Journal: list page, three articles, homepage links | 1 | T11 | Todo |
-| T15 | Product detail page v2 (gallery, actions, visit request, related pieces) | 1 | T11, T12 | Todo |
+| T12 | UI fixes: collection images, hero, header | 1 | T11 | Done (merged in master) |
+| T13 | Journal: list page, three articles, homepage links | 1 | T11, T12 | Done |
+| T14 | Performance and accessibility pass | 2 | T06, T07, T08, T10, T13, T15 | Closed by owner scope reduction (2026-10-16): basic image/accessibility fixes shipped; performance targets waived, not claimed achieved |
+| T15 | Product detail page v2 (gallery, actions, visit request, related pieces) | 1 | T11, T12 | Done — static portfolio demo only (D12; provenance/replacement release limitation) |
 
-Recommended run order: T11, T12, T13, T15, then T06 (if not Done), T07, T14, T08, T10.
+Next approved handoff (2026-10-14): T14 performance/accessibility planning after T15 static-demo acceptance. Owner approval overrides historical run order/dependency cycle for this handoff only; T06, T07, T08, and T10 are not thereby marked Done. No broad T14 work was implemented during T15 closure.
 
 T06 is NOT Done; T06 must target /collection, /collection/[slug], /journal and /journal/[slug], and run after T13.

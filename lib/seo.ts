@@ -2,22 +2,6 @@ import { siteConfig } from "./site-config";
 import { type Product } from "./products";
 
 /**
- * Maps product status to Schema.org availability.
- */
-function mapAvailability(status: Product["status"]): string {
-  switch (status) {
-    case "available":
-      return "https://schema.org/InStock";
-    case "preorder":
-      return "https://schema.org/PreOrder";
-    case "sold-out":
-      return "https://schema.org/OutOfStock";
-    default:
-      return "https://schema.org/InStock";
-  }
-}
-
-/**
  * Generates WebSite structured data for the homepage.
  */
 export function generateWebsiteJsonLd(): object {
@@ -58,7 +42,7 @@ export function generateOrganizationJsonLd(): object {
  * Generates Product structured data for product detail pages.
  */
 export function generateProductJsonLd(product: Product, productUrl: string): object {
-  const imageUrls = product.images.map((img) => `${siteConfig.siteUrl}${img}`);
+  const imageUrls = product.images.map((img) => `${siteConfig.siteUrl}${img.src}`);
 
   return {
     "@context": "https://schema.org",
@@ -70,17 +54,6 @@ export function generateProductJsonLd(product: Product, productUrl: string): obj
       "@type": "Brand",
       name: siteConfig.name,
     },
-    offers: {
-      "@type": "Offer",
-      url: productUrl,
-      priceCurrency: "IDR",
-      price: product.price,
-      availability: mapAvailability(product.status),
-      validFrom: new Date().toISOString().split("T")[0],
-      seller: {
-        "@type": "Organization",
-        name: siteConfig.name,
-      },
-    },
+    url: productUrl,
   };
 }

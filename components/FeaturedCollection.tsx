@@ -27,7 +27,7 @@ export default function FeaturedCollection() {
   return (
     <section id="collection" className="py-20 md:py-28 bg-white scroll-mt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
-        {/* Header */}
+        {/* Header */} 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export default function FeaturedCollection() {
               {/* Image */}
               <div className="relative mb-6 overflow-hidden bg-gray-100">
                 <SmartImage
-                  src={product.images[0] || "/images/placeholder.jpg"}
+                  src={product.images[0]?.src || "/images/placeholder.jpg"}
                   alt={product.name}
                   label={product.name}
                   aspectRatio="3/4"
@@ -74,7 +74,7 @@ export default function FeaturedCollection() {
               </div>
 
               {/* Product Info */}
-              <h4 className="text-lg font-600 mb-2">{product.name}</h4>
+              <h3 className="text-lg font-600 mb-2">{product.name}</h3>
               <p style={{ color: "var(--muted)" }} className="text-sm mb-4">
                 {product.material}
               </p>

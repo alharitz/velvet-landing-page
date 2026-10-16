@@ -1,5 +1,11 @@
 # T14: Performance and accessibility pass
 
+## Handoff — 2026-10-14
+- Next approved task after T15 static-demo acceptance; planning only, implementation not started.
+- First scoped task: production baseline Lighthouse/accessibility measurements for five required routes; record exact commands, indexing setting, scores, bytes, and build evidence before selecting fixes.
+- Existing four lint warnings are baseline candidates, not fixed during T15. Preserve D12 demo labels and provenance limitations.
+- Historical dependency cycle in task index does not imply T06/T07/T08/T10 completion; approval permits this T14 handoff only.
+
 ## Goal
 Make the site fast and clean enough that its scores can be quoted in the case study.
 

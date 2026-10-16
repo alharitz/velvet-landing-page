@@ -1,34 +1,45 @@
-# Images Status
+# Images Needed
 
-All required images are now available in `/public/images/`. The fallback rendering will no longer appear for these files.
+T15 accepted as static portfolio demo only under final D12 (2026-10-14): each fictional Editorial Look uses one existing local visual-reference image, visibly labeled sample imagery/content. This fallback is intentional until matching photography with verified reuse rights is supplied; unknown existing provenance remains a public-release limitation. Do not add unrelated photos, invented alternate views, or unverified credits. Below are ideal genuine shots needed for a multi-image gallery.
 
-## Available Images (24/24)
+## Essential Crew Neck
+1. Front view of the t-shirt
+2. Back view of the t-shirt
+3. Detail view of the fabric and neckline
 
-| Filename | Status | Source |
-|----------|--------|--------|
-| hero.jpg | ✓ Ready | Local asset |
-| collection-01.jpg | ✓ Ready | Local asset |
-| collection-02.jpg | ✓ Ready | Local asset |
-| collection-03.jpg | ✓ Ready | Local asset |
-| collection-04.jpg | ✓ Ready | Local asset |
-| collection-05.jpg | ✓ Ready | Local asset |
-| collection-06.jpg | ✓ Ready | Local asset |
-| collection-07.jpg | ✓ Ready | Local asset |
-| collection-08.jpg | ✓ Ready | Local asset |
-| category-outerwear.jpg | ✓ Ready | Unsplash |
-| category-knitwear.jpg | ✓ Ready | Unsplash |
-| category-trousers.jpg | ✓ Ready | Unsplash |
-| category-accessories.jpg | ✓ Ready | Unsplash |
-| story-main.jpg | ✓ Ready | Local asset |
-| story-detail.jpg | ✓ Ready | Local asset |
-| lookbook-01.jpg | ✓ Ready | Local asset |
-| lookbook-02.jpg | ✓ Ready | Unsplash |
-| lookbook-03.jpg | ✓ Ready | Unsplash |
-| lookbook-04.jpg | ✓ Ready | Unsplash |
-| lookbook-05.jpg | ✓ Ready | Unsplash |
-| lookbook-06.jpg | ✓ Ready | Unsplash |
-| journal-01.jpg | ✓ Ready | Unsplash |
-| journal-02.jpg | ✓ Ready | Unsplash |
-| journal-03.jpg | ✓ Ready | Unsplash |
+## Relaxed Linen Shirt
+1. Front view of the shirt
+2. Back view of the shirt
+3. Detail view of the linen texture
 
-All images are now live and will render with SmartImage component (no fallbacks needed).
+## Tailored Wool Trousers
+1. Front view of the trousers
+2. Back view of the trousers
+3. Detail view of the wool fabric and stitching
+
+## Minimal Wool Coat
+1. Front view of the coat
+2. Side view of the coat
+3. Back view of the coat
+
+## Cashmere Blend Sweater
+1. Front view of the sweater
+2. Side view of the sweater
+3. Back view of the sweater
+
+## Structured Blazer
+1. Front view of the blazer
+2. Side view of the blazer
+3. Back view of the blazer
+
+## Organic Cotton Basics Set
+1. Front view of the set (both t-shirts)
+2. Side view of the set
+3. Back view of the set
+
+## Selvedge Denim
+1. Front view of the jeans
+2. Side view of the jeans
+3. Back view of the jeans
+
+Owner must supply matching photos and source pages, author names, and explicit license URLs (or proof of ownership) before public use. Existing collection files also need provenance; retaining a local file does not prove permission. Verified replacements should be saved under `public/images/products/<slug>/01.jpg`, `02.jpg`, etc.; remove unlicensed originals rather than claiming them as licensed first views.

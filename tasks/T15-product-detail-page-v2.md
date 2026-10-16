@@ -13,11 +13,11 @@ Use the frontend‑design / UI‑UX skill if available. Keep existing design tok
 
 ## Requirements
 ### 1. Product data (lib/products.ts)
-- Extend each product with `images: {src:string,alt:string}[]` (3‑4 per product; keep existing image as first). Add `shortDescription`, `longDescription` (≤2 paragraphs), `details` (label/value pairs, e.g. Material, Category, Sizes), `sizes` (XS‑XL), and `care` (text from Fabric Library or generic FAQ). Preserve slugs, keys, and exports.
+- Extend each product with `images: {src:string,alt:string}[]` (3‑4 per product when genuine matching views are lawfully available; otherwise one existing local visual-reference image is accepted only for the explicitly labeled static portfolio demo under final D12; keep existing image as first). Add `shortDescription`, `longDescription` (≤2 paragraphs), `details` (label/value pairs, e.g. Material, Category, Sizes), `sizes` (XS‑XL), and `care` (text from Fabric Library or generic FAQ). Preserve slugs, keys, and exports.
 - Helpers: `getRelatedProducts(slug, limit)`, `getAdjacentProducts(slug)` – previous/next in data order, wrap around.
 
 ### 2. Photography (D11)
-- Find freely licensed photos (Unsplash/Pexels/Pixabay). Store under `public/images/products/<slug>/01.jpg`, `02.jpg`, …; keep existing image as first.
+- Find freely licensed photos (Unsplash/Pexels/Pixabay) only when source, author, and reuse license are verifiable. Store under `public/images/products/<slug>/01.jpg`, `02.jpg`, …; keep existing image as first. Final D12 permits one existing local image as a labeled sample visual reference, not verified product photography. Unknown provenance is a public-release limitation, not waived reuse rights; do not add unrelated or invented alternate views.
 - Resize ≤ 1600 px edge, ≤ 300 KB, JPG/WebP. No new deps. Report total added size.
 - Record each in `docs/IMAGE_CREDITS.md` (file, source URL, author, license) and add alt text.
 - If no internet, list ideal shots per product in `IMAGES_NEEDED.md` and keep current image.
@@ -55,7 +55,7 @@ Cart, checkout, real booking backend, reviews, wishlist, analytics (T07), SEO/OG
 
 ## Acceptance criteria
 - Gallery works: desktop arrows, thumbnails, counter, keyboard; mobile swipe at 390 px (or note if not verified). Single‑image products show no broken controls; lightbox keyboard‑accessible.
-- Every image URL returns 200, images are local, no external URLs; total added size reported; `IMAGE_CREDITS.md` complete.
+- Every image URL returns 200, images are local, no external URLs; total added size reported. `IMAGE_CREDITS.md` honestly records unknown existing provenance; verified credits and matching replacement photos are required before public release, not asserted for this static demo.
 - WhatsApp order message contains product, price, size (if any), page URL.
 - Marketplace buttons never masquerade as product pages; open new tab with `rel="noopener noreferrer"`.
 - Book a Visit validates date/time against structured store hours, shows address/hours, opens prefilled WhatsApp message, and is keyboard/screen‑reader usable.
@@ -64,5 +64,12 @@ Cart, checkout, real booking backend, reviews, wishlist, analytics (T07), SEO/OG
 - Mobile sticky bar does not overlap content/footer; floating button remains on desktop.
 - Lint and build pass with no new warnings.
 
+## Acceptance record — 2026-10-14
+- Done for static portfolio demo only under approved final D12. Visible sample imagery/content notice; fictional Editorial Look data; no material/certification/stock claims or Product offers in JSON-LD. Static routes/actions and intentional single-image gallery retained.
+- Master reran TypeScript, lint (0 errors, four existing warnings), production build (27 pages), and diff whitespace check successfully. Fresh production BUILD_ID `kEDs3q7YsQ0VL7zPHo7zk` verified via Playwright on port 3020.
+- Product checks passed at 390x844, 768x844, 1366x768, 1920x1080: single-image controls absent, lightbox keyboard/focus/scroll lock, order payloads, five marketplace store links, visit validation, accordions, related/adjacent navigation, footer clearance, image HTTP 200 and unknown-slug 404. Home → Collection → detail passed at 390x768 and 1366x768; visible demo notice and absence of JSON-LD offers asserted. No console/page errors or unexpected HTTP failures; top screenshots inspected at 390 and 1366.
+- Added photography: 0 bytes. Unknown existing provenance remains release limitation. Multi-image arrows/thumbnails/counter/swipe not accepted or verified with real matching assets; verify when lawful photos supplied.
+- Next approved task: T14 performance/accessibility, planning handoff only; no broad T14 implementation in this session. T06 remains In Progress.
+
 ## Final report
-List created/modified files, summarize README, PRODUCT_BRIEF, and AGENTS changes, note T06 status, and stop. Do not start T15.
+Use Implemented, Files changed, Checks run, Failures, Remaining work. State static-demo acceptance, release limits, and T14 next.

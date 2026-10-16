@@ -13,7 +13,7 @@ export default function VisitUs() {
     e.preventDefault();
     if (formData.name.trim() && formData.message.trim()) {
       const msg = `Halo VELVET, dari ${formData.name}: ${formData.message}`;
-      window.open(waLink(msg), "_blank");
+      window.open(waLink(msg), "_blank", "noopener,noreferrer");
       setFormData({ name: "", message: "" });
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 3000);
@@ -109,8 +109,10 @@ export default function VisitUs() {
             {/* Contact Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="text-sm font-semibold mb-2 block">Name</label>
+                <label htmlFor="contact-name" className="text-sm font-semibold mb-2 block">Name</label>
                 <input
+                  id="contact-name"
+                  required
                   type="text"
                   value={formData.name}
                   onChange={(e) =>
@@ -122,10 +124,12 @@ export default function VisitUs() {
                 />
               </div>
               <div>
-                <label className="text-sm font-semibold mb-2 block">
+                <label htmlFor="contact-message" className="text-sm font-semibold mb-2 block">
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
+                  required
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
@@ -149,12 +153,13 @@ export default function VisitUs() {
 
           {/* Right: Map */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <iframe
+              title="VELVET demo store location"
               width="100%"
               height="420"
               style={{

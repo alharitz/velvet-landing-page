@@ -47,6 +47,9 @@ export default function Newsletter() {
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <div className="flex-1 relative">
               <input
+                aria-label="Email address"
+                aria-invalid={!!error}
+                aria-describedby={error ? "newsletter-error" : undefined}
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -65,6 +68,8 @@ export default function Newsletter() {
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
+              id="newsletter-error"
+              role="alert"
               className="text-accent text-sm mt-4"
             >
               {error}
